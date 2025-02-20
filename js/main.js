@@ -797,7 +797,7 @@ function exportHTML() {
 }
 
 function downloadFile(content) {
-    const fileNumber = document.getElementById('fileNumber').value || 1;
+    const fileName = document.getElementById('fileName').value.replace(/\s+/g, '').toUpperCase();
 
     const htmlContent = `
         ${content}
@@ -806,7 +806,7 @@ function downloadFile(content) {
 
     const a = document.createElement('a');
     a.href = URL.createObjectURL(file);
-    a.download = `lift${fileNumber}_html(Approve needed).html`;
+    a.download = `${fileName}_html(Approve needed).html`;
     a.click();
     URL.revokeObjectURL(a.href);
 }
@@ -912,14 +912,14 @@ function exportMJML() {
 }
 
 function downloadMjmlFile(content) {
-    const mjmlFileNumber = document.getElementById('mjmlFileNumber').value || 1;
+    const mjmlFileName = document.getElementById('mjmlFileName').value.replace(/\s+/g, '').toUpperCase();
 
     const htmlContent = `${content}`;
     const file = new Blob([htmlContent], {type: 'text/html'});
 
     const a = document.createElement('a');
     a.href = URL.createObjectURL(file);
-    a.download = `lift${mjmlFileNumber}_mjml(Approve needed).html`;
+    a.download = `${mjmlFileName}_mjml(Approve needed).html`;
     a.click();
     URL.revokeObjectURL(a.href);
 }
@@ -930,3 +930,39 @@ document.getElementById("mjmlDownloadBtn").addEventListener("click", function ()
     downloadMjmlFile(editableText);
 });
 
+// end mjml code
+
+// select all on click
+document.querySelectorAll('.input-name').forEach(input => {
+    input.addEventListener('click', function (event) {
+        if (event.detail === 1) { // Only on single click
+            this.select();
+        }
+    });
+});
+
+// html file number increment
+function changeNumber(amount) {
+    let input = document.getElementById("fileName");
+    let match = input.value.match(/(\D*)(\d+)/); // Match text and number separately
+
+    if (match) {
+        let textPart = match[1]; // Non-numeric part (e.g., "SBJC ")
+        let numberPart = parseInt(match[2]) || 0; // Numeric part (e.g., 123)
+        numberPart += amount; // Increment or decrement the number
+        input.value = textPart + numberPart; // Update input value
+    }
+}
+
+// mjml file number increment
+function changeMjmlNumber(amount) {
+    let input = document.getElementById("mjmlFileName");
+    let match = input.value.match(/(\D*)(\d+)/); // Match text and number separately
+
+    if (match) {
+        let textPart = match[1]; // Non-numeric part (e.g., "SBJC ")
+        let numberPart = parseInt(match[2]) || 0; // Numeric part (e.g., 123)
+        numberPart += amount; // Increment or decrement the number
+        input.value = textPart + numberPart; // Update input value
+    }
+}
