@@ -31,9 +31,11 @@
                     <button class="primary-button" onclick="exportHTML()">Експортувати HTML</button>
                     <button class="primary-button" id="downloadBtn">Завантажити HTML</button>
                     <!-- Поле для введення номера файлу -->
-                    <div class="input-number-block">
-                        <label class="input-number-label" for="fileNumber">Введіть номер<br> файлу:</label>
-                        <input class="input-number" type="number" id="fileNumber" value="" min="1">
+                    <div class="input-name-block">
+                        <label class="input-name-label" for="fileName">Введіть імʼя<br> файлу:</label>
+                        <button class="button-decrement" onclick="changeNumber(-1)">&#11015;</button>
+                        <input class="input-name" type="text" id="fileName" value="" autocomplete="off">
+                        <button class="button-increment" onclick="changeNumber(1)">&#11014;</button>
                     </div>
                 </div>
                 <div class="code-inner-block">
@@ -46,9 +48,11 @@
                     <button class="primary-button" onclick="exportMJML()">Експортувати MJML</button>
                     <button class="primary-button" id="mjmlDownloadBtn">Завантажити MJML</button>
                     <!-- Поле для введення номера файлу -->
-                    <div class="input-number-block">
-                        <label class="input-number-label" for="mjmlFileNumber">Введіть номер<br> файлу:</label>
-                        <input class="input-number" type="number" id="mjmlFileNumber" value="" min="1">
+                    <div class="input-name-block">
+                        <label class="input-name-label" for="mjmlFileName">Введіть імʼя<br> файлу:</label>
+                        <button class="button-decrement" onclick="changeMjmlNumber(-1)">&#11015;</button>
+                        <input class="input-name" type="text" id="mjmlFileName" value="" autocomplete="off">
+                        <button class="button-increment" onclick="changeMjmlNumber(1)">&#11014;</button>
                     </div>
                 </div>
                 <div class="code-inner-block">
