@@ -966,3 +966,45 @@ function changeMjmlNumber(amount) {
         input.value = textPart + numberPart; // Update input value
     }
 }
+
+//copy function
+function copyTextHtml() {
+    const copyText = document.getElementById("output");
+    const button = document.getElementById("copyHtmlButton");
+
+
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+
+
+    navigator.clipboard.writeText(copyText.value).then(() => {
+        button.innerText = "Copied!";
+
+        setTimeout(() => {
+            button.innerText = "Copy MJML";
+        }, 2000);
+    }).catch((err) => {
+        alert("Copy error");
+    });
+}
+
+
+function copyTextMjml() {
+    const copyText = document.getElementById("mjmlOutput");
+    const button = document.getElementById("copyMjmlButton");
+
+
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+
+
+    navigator.clipboard.writeText(copyText.value).then(() => {
+        button.innerText = "Copied!";
+
+        setTimeout(() => {
+            button.innerText = "Copy MJML";
+        }, 2000);
+    }).catch((err) => {
+        alert("Copy error");
+    });
+}

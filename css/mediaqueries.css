@@ -12,9 +12,9 @@
   .input-number-block br {
     display: none;
   }
-  .primary-button {
-    margin-bottom: 15px;
-  }
+  /*  .primary-button {
+      margin-bottom: 15px;
+    }*/
   .limit {
     padding: 60px 30px;
   }
