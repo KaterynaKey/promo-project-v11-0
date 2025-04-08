@@ -22,7 +22,7 @@ function italicLinks(htmlContent) {
     blueColors.forEach((color, index) => {
         const regex = new RegExp(`<span[^>]*style="[^"]*color:\\s*${color}[^"]*;[^"]*font-style:\\s*italic[^"]*"[^>]*>(.*?)<\\/span>`, 'gi');
         htmlContent = htmlContent.replace(regex,
-            '<a href="urlhere" style="font-family:\'Roboto\', Arial, Helvetica, sans-serif;text-decoration: underline;font-weight: 700;"><em>$1</em></a>'
+            '<a href="urlhere" style="font-family:\'Roboto\', Arial, Helvetica, sans-serif;text-decoration: underline;font-weight: 700; color: #0000EE;"><em>$1</em></a>'
         );
     });
 
@@ -33,7 +33,7 @@ function linksStyles(htmlContent) {
     blueColors.forEach((color, index) => {
         const reg = new RegExp(`<span[^>]*style="[^"]*color:\\s*(${color})[^"]*"[^>]*>(.*?)<\\/span>`, 'gi');
         htmlContent = htmlContent.replace(reg,
-            '<a href="urlhere" style="font-family:\'Roboto\', Arial, Helvetica, sans-serif;text-decoration: underline;font-weight: 700;">$2</a>'
+            '<a href="urlhere" style="font-family:\'Roboto\', Arial, Helvetica, sans-serif;text-decoration: underline;font-weight: 700; color: #0000EE;">$2</a>'
         );
     });
 
